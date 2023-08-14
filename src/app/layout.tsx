@@ -5,6 +5,7 @@ import { Urbanist } from "next/font/google";
 
 import { Footer } from "@/components/footer";
 import { Navbar } from "@/components/navbar";
+import { cn } from "@/lib/utils";
 
 const urbanist = Urbanist({ subsets: ["latin"] });
 
@@ -16,7 +17,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body className={urbanist.className}>
+      <body className={cn(urbanist.className, "min-h-screen flex flex-col")}>
         {/* @ts-expect-error Server Component */}
         <Navbar />
         {children}
