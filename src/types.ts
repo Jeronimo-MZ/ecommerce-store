@@ -22,7 +22,7 @@ export type Product = {
   size: Size;
 };
 
-type Color = {
+export type Color = {
   id: string;
   name: string;
   value: string;
@@ -33,7 +33,7 @@ export type Image = {
   url: string;
 };
 
-type Size = {
+export type Size = {
   id: string;
   name: string;
   value: string;

@@ -7,7 +7,7 @@ type IconButtonProps = ComponentProps<"button"> & {
   className?: string;
 };
 
-const IconButton: React.FC<IconButtonProps> = ({ onClick, icon, className, ...props }) => {
+const IconButton: React.FC<IconButtonProps> = ({ icon, className, ...props }) => {
   return (
     <button
       className={cn(
