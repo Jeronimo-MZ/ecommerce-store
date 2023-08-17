@@ -5,5 +5,5 @@ type CurrencyProps = {
 };
 
 export const Currency = ({ value }: CurrencyProps) => {
-  return <p className="font-bold">{formatMoney(Number(value))}</p>;
+  return <span className="font-bold">{formatMoney(Number(value))}</span>;
 };
