@@ -4,6 +4,7 @@ import { ExpandIcon, ShoppingCartIcon } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
+import { useCart } from "@/hooks/use-cart";
 import { usePreviewModal } from "@/hooks/use-preview-modal";
 import { Product } from "@/types";
 
@@ -16,10 +17,14 @@ type ProductCardProps = {
 
 export const ProductCard: React.FC<ProductCardProps> = ({ data }) => {
   const previewModal = usePreviewModal();
+  const cart = useCart();
   const onPreview = () => {
     previewModal.onOpen(data);
   };
 
+  const onAddToCart = () => {
+    cart.addItem(data);
+  };
   return (
     <div className="relative group bg-white rounded-xl border p-3">
       <Link href={`/product/${data.id}`} className="space-y-4 outline-none">
@@ -37,7 +42,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({ data }) => {
       <div className="opacity-0 group-hover:opacity-100 group-focus-within:opacity-100 transition w-full absolute left-0 bottom-32">
         <div className="flex gap-x-6 justify-center">
           <IconButton icon={<ExpandIcon size={20} className="text-gray-600" />} onClick={onPreview} />
-          <IconButton icon={<ShoppingCartIcon size={20} className="text-gray-600" />} />
+          <IconButton icon={<ShoppingCartIcon size={20} className="text-gray-600" onClick={onAddToCart} />} />
         </div>
       </div>
     </div>

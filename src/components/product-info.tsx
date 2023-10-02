@@ -3,6 +3,7 @@
 import { ExternalLinkIcon, ShoppingCart } from "lucide-react";
 import Link from "next/link";
 
+import { useCart } from "@/hooks/use-cart";
 import { Product } from "@/types";
 
 import { Button } from "./ui/button";
@@ -13,6 +14,10 @@ type ProductInfoProps = {
 };
 
 export const ProductInfo = ({ product }: ProductInfoProps) => {
+  const cart = useCart();
+  const onAddToCart = () => {
+    cart.addItem(product);
+  };
   return (
     <div>
       <h1 className="text-3xl font-bold text-gray-900">{product.name}</h1>
@@ -44,7 +49,7 @@ export const ProductInfo = ({ product }: ProductInfoProps) => {
           </p>
         </div>
         <div className="flex items-center gap-x-4">
-          <Button className="flex items-center gap-2 capitalize">
+          <Button className="flex items-center gap-2 capitalize" onClick={onAddToCart}>
             Add to cart
             <ShoppingCart />
           </Button>

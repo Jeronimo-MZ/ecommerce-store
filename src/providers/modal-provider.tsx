@@ -1,11 +1,11 @@
 import { PreviewModal } from "@/components/preview-modal";
 
-import { BaseClientProvider } from "./base-client-provider";
+import { ClientRender } from "./client-render";
 
 export const ModalProvider = () => {
   return (
-    <BaseClientProvider>
+    <ClientRender>
       <PreviewModal />
-    </BaseClientProvider>
+    </ClientRender>
   );
 };

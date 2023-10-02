@@ -7,6 +7,7 @@ import { Footer } from "@/components/footer";
 import { Navbar } from "@/components/navbar";
 import { cn } from "@/lib/utils";
 import { ModalProvider } from "@/providers/modal-provider";
+import { ToastProvider } from "@/providers/toast-provider";
 
 const urbanist = Urbanist({ subsets: ["latin"] });
 
@@ -20,6 +21,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en">
       <body className={cn(urbanist.className, "min-h-screen flex flex-col")}>
         <ModalProvider />
+        <ToastProvider />
         {/* @ts-expect-error Server Component */}
         <Navbar />
         {children}

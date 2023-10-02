@@ -1,7 +1,7 @@
 "use client";
 import { ReactNode, useEffect, useState } from "react";
 
-export const BaseClientProvider = ({ children }: { children: ReactNode }) => {
+export const ClientRender = ({ children }: { children: ReactNode }) => {
   const [isMounted, setIsMounted] = useState(false);
   useEffect(() => {
     setIsMounted(true);
