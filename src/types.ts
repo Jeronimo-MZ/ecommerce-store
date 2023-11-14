@@ -1,40 +1,42 @@
 export type Billboard = {
-  id: string;
+  id: number;
   label: string;
   imageUrl: string;
 };
 
 export type Category = {
-  id: string;
+  id: number;
   name: string;
-  billboardId: string;
+  billboardId: number;
   billboard: Billboard;
 };
 
 export type Product = {
-  id: string;
+  id: number;
   name: string;
   price: number;
-  isFeatured: boolean;
   category: Category;
   color: Color;
-  images: Image[];
+  images: string[];
   size: Size;
 };
 
 export type Color = {
-  id: string;
+  id: number;
   name: string;
   value: string;
-};
-
-export type Image = {
-  id: string;
-  url: string;
 };
 
 export type Size = {
-  id: string;
+  id: number;
   name: string;
   value: string;
+};
+
+export type Store = {
+  id: number;
+  name: string;
+  url: string;
+  userId: number;
+  currency: string;
 };

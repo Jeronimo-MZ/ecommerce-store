@@ -29,7 +29,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({ data }) => {
     <div className="relative group bg-white rounded-xl border p-3">
       <Link href={`/product/${data.id}`} className="space-y-4 outline-none">
         <div className="aspect-square rounded-xl bg-gray-100 relative">
-          <Image src={data.images[0].url} alt={data.name} fill className="object-cover aspect-square rounded-md" />
+          <Image src={data.images[0]} alt={data.name} fill className="object-cover aspect-square rounded-md" />
         </div>
         <div>
           <p className="font-semibold text-lg group-focus-within:underline group-hover:underline">{data.name}</p>

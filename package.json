@@ -19,6 +19,7 @@
     "eslint": "8.46.0",
     "eslint-config-next": "13.4.12",
     "lucide-react": "^0.265.0",
+    "mysql2": "^3.6.2",
     "next": "13.4.12",
     "postcss": "8.4.27",
     "query-string": "^8.1.0",

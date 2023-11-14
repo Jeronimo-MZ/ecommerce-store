@@ -1,3 +1,6 @@
+"use client";
+
+import { useCurrency } from "@/hooks/use-currency";
 import { formatMoney } from "@/lib/format-money";
 
 type CurrencyProps = {
@@ -5,5 +8,6 @@ type CurrencyProps = {
 };
 
 export const Currency = ({ value }: CurrencyProps) => {
-  return <span className="font-bold">{formatMoney(Number(value))}</span>;
+  const { currency } = useCurrency();
+  return <span className="font-bold">{formatMoney(Number(value) / 100, currency)}</span>;
 };

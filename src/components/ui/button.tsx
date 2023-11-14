@@ -1,5 +1,5 @@
 import { LoaderIcon } from "lucide-react";
-import { ComponentProps, forwardRef, Fragment } from "react";
+import { ComponentProps, forwardRef } from "react";
 
 import { cn } from "@/lib/utils";
 

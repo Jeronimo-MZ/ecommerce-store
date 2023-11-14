@@ -3,6 +3,7 @@ import Link from "next/link";
 
 import { getProduct } from "@/actions/get-product";
 import { getProducts } from "@/actions/get-products";
+import { getStore } from "@/actions/get-store";
 import { Gallery } from "@/components/gallery";
 import { ProductInfo } from "@/components/product-info";
 import { ProductList } from "@/components/product-list";
@@ -32,6 +33,7 @@ const ProductPage = async ({ params }: ProductPageProps) => {
   }
   const product = productResult.getValue();
   const suggestedProducts = (await getProducts({ categoryId: product.category.id })).filter(p => p.id !== product.id);
+  const store = await getStore();
   return (
     <div className="bg-white">
       <Container>

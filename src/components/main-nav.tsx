@@ -7,7 +7,7 @@ import { cn } from "@/lib/utils";
 
 type MainNavProps = {
   data: Array<{
-    id: string;
+    id: number;
     name: string;
   }>;
 };

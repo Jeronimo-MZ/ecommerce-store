@@ -3,7 +3,6 @@ import { getColors } from "@/actions/get-colors";
 import { getProducts } from "@/actions/get-products";
 import { getSizes } from "@/actions/get-sizes";
 import { Billboard } from "@/components/billboard";
-import { ProductList } from "@/components/product-list";
 import { Container } from "@/components/ui/container";
 import { ErrorPage } from "@/components/ui/error-page";
 import { NoResults } from "@/components/ui/no-result";
@@ -40,11 +39,12 @@ const CategoryPage = async ({ params, searchParams }: CategoryPageProps) => {
   const category = categoryResult.getValue();
   const products = await getProducts({
     categoryId: category.id,
-    colorId: searchParams.colorId,
-    sizeId: searchParams.sizeId,
+    colorId: Number(searchParams.colorId),
+    sizeId: Number(searchParams.sizeId),
   });
   const colors = await getColors();
   const sizes = await getSizes();
+
   return (
     <div className="bg-white">
       <Container>

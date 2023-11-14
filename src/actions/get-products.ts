@@ -4,10 +4,9 @@ import { BASE_API_URL } from "@/constants";
 import { Product } from "@/types";
 
 type Filters = {
-  categoryId?: string;
-  colorId?: string;
-  sizeId?: string;
-  isFeatured?: boolean;
+  categoryId?: number;
+  colorId?: number;
+  sizeId?: number;
 };
 
 export const getProducts = async (filters?: Filters): Promise<Product[]> => {
@@ -17,7 +16,7 @@ export const getProducts = async (filters?: Filters): Promise<Product[]> => {
       colorId: filters?.colorId,
       sizeId: filters?.sizeId,
       categoryId: filters?.categoryId,
-      isFeatured: filters?.isFeatured,
+      inStockOnly: true,
     },
   });
   const response = await fetch(url, {

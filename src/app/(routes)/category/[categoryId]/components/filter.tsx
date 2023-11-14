@@ -17,9 +17,9 @@ export const Filter = ({ data, name, valueKey }: FilterProps) => {
   const searchParams = useSearchParams();
   const selectedValue = searchParams.get(valueKey);
   const router = useRouter();
-  const onItemSelected = (item: string) => {
+  const onItemSelected = (item: number) => {
     const current = qs.parse(searchParams.toString());
-    const newValue = current[valueKey] === item ? null : item;
+    const newValue = current[valueKey] === String(item) ? null : item;
     const query = { ...current, [valueKey]: newValue };
     const url = qs.stringifyUrl({ url: window.location.href, query }, { skipNull: true, skipEmptyString: true });
     router.push(url);
@@ -34,7 +34,7 @@ export const Filter = ({ data, name, valueKey }: FilterProps) => {
             <Button
               className={cn(
                 "rounded-md text-sm text-gray-800 p-2 bg-white border border-gray-300 hover:text-white",
-                selectedValue === filter.id && "bg-black text-white",
+                selectedValue === String(filter.id) && "bg-black text-white",
               )}
               onClick={() => onItemSelected(filter.id)}
             >

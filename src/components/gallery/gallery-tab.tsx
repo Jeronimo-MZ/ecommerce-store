@@ -4,10 +4,9 @@ import { Tab } from "@headlessui/react";
 import Image from "next/image";
 
 import { cn } from "@/lib/utils";
-import { Image as ImageType } from "@/types";
 
 type GalleryTabProps = {
-  image: ImageType;
+  image: string;
 };
 export const GalleryTab = ({ image }: GalleryTabProps) => {
   return (
@@ -15,7 +14,7 @@ export const GalleryTab = ({ image }: GalleryTabProps) => {
       {({ selected }) => (
         <div>
           <span className="absolute w-full h-full inset-0 aspect-square overflow-hidden rounded-md">
-            <Image fill src={image.url} alt="" className="object-cover object-center" />
+            <Image fill src={image} alt="" className="object-cover object-center" />
           </span>
           <span
             className={cn(

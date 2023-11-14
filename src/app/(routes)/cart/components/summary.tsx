@@ -16,7 +16,7 @@ export const Summary = () => {
   const searchParams = useSearchParams();
   const items = useCart(state => state.items);
   const removeAll = useCart(state => state.removeAll);
-  const total = items.reduce((total, item) => total + item.price, 0);
+  const total = items.reduce((total, item) => total + item.price * item.quantity, 0);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   useEffect(() => {
@@ -33,7 +33,9 @@ export const Summary = () => {
   const onCheckout = async () => {
     try {
       setIsSubmitting(true);
-      const response = await axios.post(`${BASE_API_URL}/checkout`, { productIds: items.map(item => item.id) });
+      const response = await axios.post(`${BASE_API_URL}/checkout`, {
+        products: items.map(item => ({ id: item.id, quantity: item.quantity })),
+      });
       const sessionUrl = response.data.url as string;
       window.location.assign(sessionUrl);
     } catch (error) {
